@@ -1,0 +1,68 @@
+1.  constructor
+2.  componentWillMount
+3.  componentWillReceiveProps
+4.  shouldComponetUpdate
+5.  componentWillUpdate
+6.  componentDidUpdate
+7.  componentDidCatch
+8.  componentDidMount
+9.  componentWillUnMount
+10. render
+
+////////////////////////////////////////////////////////////////////////////////////
+
+constructor(props) => super(props) - Setup state, no web calls
+|
+|
+-> componentWillMount()  - Update State, no web calls
+|
+|
+-> render()  - Prepare and structure JSX componentDidCatch
+|
+|
+Renders Child Component
+|
+|
+componentDidMount - Reach out to web to get data, DO NOT UDPATE STATE
+|
+|
+componentWillUnmount - Called when component is about to removed from DOM.
+
+////////////////////////////////////////////////////////////////////////////////////
+
+Component Lifcycle - Update (triggered by Parent)
+
+componentWillReceiveProps() - Sync state to props
+|
+|
+shouldComponentUpdate (nextProps, nextState) - You can decide here whether to update the state/props 
+if returned true then the update will go through if false the process is stopped.
+|
+|
+componentWillUpdate(nextProps, nextState) - Sync state to props
+|
+|
+render()
+|
+|
+updateChildCompnents
+|
+|
+componentDidUpdate() - Call Services if needed
+////////////////////////////////////////////////////////////////////////////////////
+
+Component Life Cycle - triggered by Internal Change (State Changes)
+
+shouldComponentUpdate()
+|
+|
+componentWillUpdate()
+|
+|
+render()
+|
+|
+Update Child componentWillReceiveProps
+|
+|
+componentDidUpdate()
